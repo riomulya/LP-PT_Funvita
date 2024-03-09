@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import logo from "../../../public/logo-blue.jpg"
+import logo from "../../public/logo-blue.jpg"
 import { AppBar, Typography } from '@mui/material';
 import HideOnScroll from '../HideOnScroll';
 import { motion } from "framer-motion";
@@ -29,24 +29,6 @@ const item = {
 
 
 export default function Navbar() {
-    // const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
-    // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    //     setAnchorElNav(event.currentTarget);
-    // };
-    // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    //     setAnchorElUser(event.currentTarget);
-    // };
-
-    // const handleCloseNavMenu = () => {
-    //     setAnchorElNav(null);
-    // };
-
-    // const handleCloseUserMenu = () => {
-    //     setAnchorElUser(null);
-    // };
-
     return (
         <HideOnScroll >
             <AppBar className='mb-40'>
@@ -90,7 +72,7 @@ export default function Navbar() {
                             animate="visible"
                             className="container mr-12 pt-4 text-base text-gray-700 md:flex md:justify-between md:pt-0"
                         >
-                            {["Services", "Pricing", "Customer", "Blog", "Sign Up"].map((index) => (
+                            {["Services", "Pricing", "Customer", "Blog", "Contact"].map((index) => (
                                 <motion.li key={index} className="item" variants={item} >
                                     <a className="md:p-4 py-2 block hover:text-purple-400" href={`#${index}`}
                                     >{index}</a>

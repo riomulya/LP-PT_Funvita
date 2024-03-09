@@ -4,6 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Image from 'next/image';
+import CustomizedAccordions from './CustomAccordion';
 
 
 interface CardProps {
@@ -12,17 +14,28 @@ interface CardProps {
     description: string
 }
 
-export default function CardAction({ imgUrl, title, description }: CardProps) {
+interface propsAccordion {
+    tittle1: string,
+    description1: string,
+    tittle2: string,
+    description2: string,
+    tittle3: string,
+    description3: string,
+}
+
+
+export default function CardAction({ imgUrl, title, description }: CardProps, { tittle1, description1, tittle2, description2, tittle3, description3 }: propsAccordion) {
     return (
-        <Card sx={{ maxWidth: 300, minWidth: 300 }}>
-            <CardActionArea>
-                <CardMedia
+        <Card sx={{ maxWidth: 900, minWidth: 300 }}>
+            <CardActionArea className='md:flex'>
+                {/* <CardMedia
                     component="img"
                     height="100"
                     // width={500}
                     image={imgUrl}
                     alt={title}
-                />
+                /> */}
+                <Image src={imgUrl} width={400} height={400} priority alt={title} className="sm:mx-auto" />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {title}
