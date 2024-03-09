@@ -14,12 +14,13 @@ interface CardProps {
 
 export default function CardAction({ imgUrl, title, description }: CardProps) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 300, minWidth: 300 }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="140"
-                    src={imgUrl}
+                    height="100"
+                    // width={500}
+                    image={imgUrl}
                     alt={title}
                 />
                 <CardContent>

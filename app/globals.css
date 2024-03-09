@@ -5,3 +5,7 @@
 /* * {
   box-sizing: border-box;
 } */
+
+.MuiTabs-scrollButtons.Mui-disabled {
+  opacity: 0.3;
+}
