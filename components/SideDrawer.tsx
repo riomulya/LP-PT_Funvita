@@ -15,7 +15,7 @@ import MailIcon from "@mui/icons-material/Mail";
 
 type Anchor = "right";
 
-export default function SideDrawer() {
+export default function SideDrawer({ children }: { children: React.ReactNode }) {
     const [state, setState] = React.useState({
         right: false,
     });
@@ -41,27 +41,15 @@ export default function SideDrawer() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+                {["Services", "Pricing", "Customer", "Blog", "Contact"].map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton>
+                        <ListItemButton href={`#${text}`}>
                             <ListItemIcon>
                                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {["All mail", "Trash", "Spam"].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
+                        <Divider />
                     </ListItem>
                 ))}
             </List>
@@ -71,7 +59,7 @@ export default function SideDrawer() {
     return (
         <div>
             <React.Fragment>
-                <Button onClick={toggleDrawer("right", true)}>test</Button>
+                <Button onClick={toggleDrawer("right", true)}>{children}</Button>
                 <Drawer
                     anchor={"right"}
                     open={state["right"]}

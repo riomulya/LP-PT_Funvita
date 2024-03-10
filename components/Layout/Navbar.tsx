@@ -6,6 +6,7 @@ import logo from "../../public/logo-blue.jpg"
 import { AppBar, Typography } from '@mui/material';
 import HideOnScroll from '../HideOnScroll';
 import { motion } from "framer-motion";
+import SideDrawer from '../SideDrawer';
 
 const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -49,21 +50,23 @@ export default function Navbar() {
                         </a>
                     </div>
 
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        id="menu-button"
-                        className="h-6 w-6 cursor-pointer md:hidden block"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M4 6h16M4 12h16M4 18h16"
-                        />
-                    </svg>
+                    <SideDrawer>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            id="menu-button"
+                            className="h-6 w-6 cursor-pointer md:hidden block"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        </svg>
+                    </SideDrawer>
 
                     <div className="hidden w-full md:flex md:items-center md:w-auto" id="menu">
                         <motion.ul
