@@ -1,10 +1,11 @@
 "use client"
 
-import { Box, Button, Modal, Typography } from '@mui/material'
+import { Box, Button, Modal, Snackbar, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import company from "../../public/3d-digital.png"
 import { TypeAnimation } from 'react-type-animation';
+import { SlideTransition } from '../ui/SnackBar'
 // import { TextGenerateEffect } from '../ui/TextGenerateEffect'
 
 const style = {
@@ -22,8 +23,18 @@ const style = {
 
 export const Hero = () => {
     const [open, setOpen] = React.useState(false);
+    const [openMessage, setOpenMessage] = React.useState(false);
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const handleCloseMessage = () => setOpenMessage(false)
+    const handleOpenMessage = () => setOpenMessage(true)
+
+    const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        handleClose()
+        handleOpenMessage()
+    }
 
     return (
         <section className='my-40' id='hero profile-company'>
@@ -74,14 +85,59 @@ export const Hero = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Kirim Pesan
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+                    <div className="w-full max-w-xs mx-auto">
+                        <form onSubmit={handleForm} className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                            <div className="mb-4">
+                                <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="name">
+                                    Name
+                                </label>
+                                <input
+                                    className="w-full px-3 py-2 leading-tight text-gray-700 border rounded appearance-none focus:outline-none"
+                                    id="name"
+                                    type="text"
+                                    placeholder="Your Name"
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
+                                    Email
+                                </label>
+                                <input
+                                    className="w-full px-3 py-2 leading-tight text-gray-700 border rounded appearance-none focus:outline-none"
+                                    id="email"
+                                    type="email"
+                                    placeholder="Your Email"
+                                />
+                            </div>
+                            <div className="mb-6">
+                                <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="message">
+                                    Message
+                                </label>
+                                <textarea
+                                    className="w-full px-3 py-2 leading-tight text-gray-700 border rounded appearance-none focus:outline-none"
+                                    id="message"
+                                    placeholder="Your Message"
+                                ></textarea>
+                            </div>
+                            <div className="flex items-center justify-between">
+                                <button
+                                    className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none"
+                                    type="submit"
+                                >
+                                    Send
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </Box>
-            </Modal>
+            </Modal >
+            <Snackbar
+                open={openMessage}
+                onClose={handleCloseMessage}
+                TransitionComponent={SlideTransition}
+                message="Terima Kasih! Harap Tunggu Pesan dibalas!"
+                autoHideDuration={1200}
+            />
         </section >
     )
 }
