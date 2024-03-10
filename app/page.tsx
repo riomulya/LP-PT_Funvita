@@ -1,3 +1,5 @@
+import { Testimonial } from "@/components/Layout/Testimonial";
+// import SideDrawer from "@/components/SideDrawer";
 import Contact from "../components/Contact";
 import { Hero } from "../components/Layout/Hero";
 import { Services } from "../components/Layout/Services";
@@ -18,6 +20,7 @@ export default function Home() {
       <Services />
       {/* </main> */}
       <Contact />
+      <Testimonial />
       <TheFooter />
     </main>
   );

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 import company from "../../public/3d-digital.png"
 import { TypeAnimation } from 'react-type-animation';
+// import { TextGenerateEffect } from '../ui/TextGenerateEffect'
 
 
 export const Hero = () => {
@@ -45,6 +46,8 @@ export const Hero = () => {
                     </Typography>
                     {/* <Typography className='mt-4' variant='h6' component="h6" color="darkslateblue"> */}
                     {/* </Typography> */}
+                    {/* <TextGenerateEffect words='Lorem ipsum dolor sit amet consectetur adipisicing elit. Id tenetur voluptates quos asperiores et laborum rem incidunt ab quibusdam consectetur accusantium laboriosam repudiandae facere consequatur blanditiis ratione hic, in ullam cumque amet voluptas culpa quia eos. Debitis eveniet aspernatur laboriosam, nostrum fugit inventore dolore omnis quaerat quos sed officiis ex eaque sequi vitae dignissimos neque iusto quo doloremque aperiam! Natus saepe odit sint ad necessitatibus. Fugiat odit facere reprehenderit iste, at adipisci natus quibusdam dolores perspiciatis aut maiores! Repellendus molestiae, nostrum natus et, ab enim placeat architecto reprehenderit nesciunt dolor quibusdam similique, numquam impedit voluptatibus dolores nemo laboriosam in. Minima?' className='color' /> */}
+
                 </span>
                 <Image src={company} priority width={700} height={700} alt="Team With Us" className='my-auto' />
             </div>
